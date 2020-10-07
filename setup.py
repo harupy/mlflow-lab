@@ -1,4 +1,5 @@
 import os
+import re
 
 from setuptools import find_packages, setup
 
@@ -6,6 +7,19 @@ import mlflow_lab
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
 GITHUB_REPO_URL = "https://github.com/harupy/mlflow-lab"
+
+
+def extract_version(line):
+    return re.search("__version__ = '(.+)'").group(1)
+
+
+def get_version():
+    version_filepath = os.path.join(ROOT, "mlflow_lab", "version.py")
+    with open(version_filepath) as f:
+        for line in f:
+            if line.startswith("__version__"):
+                return extract_version(line)
+    assert False
 
 
 def get_readme():
