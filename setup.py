@@ -3,8 +3,6 @@ import re
 
 from setuptools import find_packages, setup
 
-import mlflow_lab
-
 ROOT = os.path.abspath(os.path.dirname(__file__))
 GITHUB_REPO_URL = "https://github.com/harupy/mlflow-lab"
 
@@ -37,7 +35,7 @@ def get_extra_require():
 
 setup(
     name="mlflow-lab",
-    version=mlflow_lab.__version__,
+    version=get_version(),
     packages=find_packages(),
     python_requires=">=3.6",
     install_requires=get_install_requires(),
