@@ -1,6 +1,15 @@
 # mac
 .DS_Store
 
+# vscode
+.vscode/
+
 # python
 __pycache__/
 dist/
+
+# pytest
+.pytest_cache/
+
+# mlflow
+mlruns
