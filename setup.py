@@ -8,7 +8,7 @@ GITHUB_REPO_URL = "https://github.com/harupy/mlflow-lab"
 
 
 def extract_version(line):
-    return re.search("__version__ = '(.+)'").group(1)
+    return re.search('__version__ = "(.+)"').group(1)
 
 
 def get_version():
