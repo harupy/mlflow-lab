@@ -1,6 +1,16 @@
 # mac
 .DS_Store
 
+# vscode
+.vscode/
+
 # python
 __pycache__/
 dist/
+*.egg-info
+
+# pytest
+.pytest_cache/
+
+# mlflow
+mlruns
