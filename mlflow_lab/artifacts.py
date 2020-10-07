@@ -7,12 +7,12 @@ import numpy as np
 
 
 @contextmanager
-def _log_artifact_contextmanager(out_file, artifact_path=None):
+def _log_artifact_contextmanager(filename, artifact_path=None):
     """
     A context manager to make it easier to log an artifact.
     """
     with tempfile.TemporaryDirectory() as tmp_dir:
-        tmp_path = os.path.join(tmp_dir, out_file)
+        tmp_path = os.path.join(tmp_dir, filename)
         yield tmp_path
         mlflow.log_artifact(tmp_path, artifact_path)
 
@@ -30,6 +30,9 @@ def log_numpy(numpy_obj, filename, artifact_path=None):
     artifact_path : str
         An artifact path to store the numpy object.
 
+    Returns
+    -------
+    None
     """
     with _log_artifact_contextmanager(filename, artifact_path) as tmp_path:
         np.save(tmp_path, numpy_obj)
